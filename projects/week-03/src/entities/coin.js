@@ -11,6 +11,9 @@ export class CoinEntity extends me.Renderable {
   constructor(x, y) {
     super(x, y, TILE_SIZE, TILE_SIZE);
     this.name = "coin";
+    // top-left anchor to match the raw pixel coordinates used in draw()
+    // (melonJS renderables default to a center anchor)
+    this.anchorPoint.set(0, 0);
     this.basePos = { x, y };
     this.wobble = Math.random() * Math.PI * 2;
     this.image = me.loader.getImage("coin");

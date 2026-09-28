@@ -9,6 +9,11 @@ export class LevelBackground extends me.Renderable {
     super(0, 0, level.width * TILE_SIZE, level.height * TILE_SIZE);
     this.level = level;
     this.z = 0;
+    // melonJS renderables are center-anchored by default, which offsets
+    // draw() by half the width/height before it even runs. We draw with
+    // plain top-left pixel coordinates (x * TILE_SIZE, y * TILE_SIZE), so
+    // pin the anchor to the top-left corner to match.
+    this.anchorPoint.set(0, 0);
     this.wallImage = me.loader.getImage("wall");
     this.lavaImage = me.loader.getImage("lava");
   }

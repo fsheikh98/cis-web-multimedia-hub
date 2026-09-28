@@ -45,7 +45,9 @@
       max-width: 380px;
     }
     canvas { display: block; background: #000; image-rendering: pixelated; }
+    #pacman-canvas { width: 420px; height: 528px; }
     #screen { background: #000; }
+    #screen canvas { width: 620px; height: 221px; }
     .coords {
       margin-top: 10px;
       font-family: var(--mono);
@@ -58,13 +60,6 @@
 </head>
 <body>
   <h1>Week 3 &mdash; Web Mechanics &amp; melonJS Initialization</h1>
-  <p class="sub">
-    Left: the Pac-Man logic ported to a plain HTML5 canvas renderer (no engine).
-    Right: the same "actors + level + update + display" architecture (Eloquent JS ch.16)
-    running inside melonJS as a small platformer. Both panes print live actor coordinates,
-    and both listen for the same arrow keys on purpose &mdash; it's the same input state
-    driving two different rendering/update pipelines at once.
-  </p>
 
   <div class="layout">
     <div class="panel">

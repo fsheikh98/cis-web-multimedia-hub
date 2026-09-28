@@ -23,6 +23,9 @@ export class PlayerEntity extends me.Renderable {
     const spawnY = y - (PLAYER_HEIGHT - TILE_SIZE);
     super(x, spawnY, TILE_SIZE, PLAYER_HEIGHT);
     this.name = "player";
+    // top-left anchor to match the raw pixel coordinates used in
+    // touches()/draw() (melonJS renderables default to a center anchor)
+    this.anchorPoint.set(0, 0);
     this.level = level;
     this.vx = 0;
     this.vy = 0;
