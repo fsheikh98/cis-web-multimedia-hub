@@ -12,7 +12,7 @@ This repository will hold my weekly coursework, project files, and multimedia as
 
 | Folder | Contents |
 |--------|----------|
-| `projects/week-01` | Local Environments & Git Pipelines — GitHub Student Pack, SSH setup, Git config, staging/commit/push drills, feature branching |
+| `projects/week-01` | Local Environments & Git Pipelines - GitHub Student Pack, SSH setup, Git config, staging/commit/push drills, feature branching |
 | `projects/week-02` | TBD |
 | `projects/week-03` | TBD |
 | `projects/week-04` | TBD |
