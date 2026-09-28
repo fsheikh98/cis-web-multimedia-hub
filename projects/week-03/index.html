@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week 3 &mdash; Pac-Man Scratch Port + melonJS Platformer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111417;
+      --panel: #1b1f24;
+      --accent: #ffd24c;
+      --mono: "Courier New", monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #e7e7e7;
+      font-family: system-ui, sans-serif;
+      padding: 24px;
+    }
+    h1 { font-size: 1.25rem; margin: 0 0 4px; }
+    p.sub { margin: 0 0 20px; color: #9aa0a6; font-size: 0.9rem; }
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid #2a2f36;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .panel h2 {
+      font-size: 0.95rem;
+      margin: 0 0 4px;
+      color: var(--accent);
+    }
+    .panel p.desc {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      color: #9aa0a6;
+      max-width: 380px;
+    }
+    canvas { display: block; background: #000; image-rendering: pixelated; }
+    #screen { background: #000; }
+    .coords {
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: #7CFC9A;
+      white-space: pre;
+    }
+    .hint { font-size: 0.75rem; color: #6b7178; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Week 3 &mdash; Web Mechanics &amp; melonJS Initialization</h1>
+  <p class="sub">
+    Left: the Pac-Man logic ported to a plain HTML5 canvas renderer (no engine).
+    Right: the same "actors + level + update + display" architecture (Eloquent JS ch.16)
+    running inside melonJS as a small platformer. Both panes print live actor coordinates,
+    and both listen for the same arrow keys on purpose &mdash; it's the same input state
+    driving two different rendering/update pipelines at once.
+  </p>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>1 &middot; Pac-Man &mdash; Canvas Renderer</h2>
+      <p class="desc">Vanilla JS + Canvas 2D. Grid-based movement, wall sensing via tile lookup, simple chase-AI ghost.</p>
+      <canvas id="pacman-canvas" width="304" height="382"></canvas>
+      <div id="pacman-coords" class="coords">x: -- y: --</div>
+      <div class="hint">Arrow keys to move.</div>
+    </div>
+
+    <div class="panel">
+      <h2>2 &middot; Platformer &mdash; melonJS Engine</h2>
+      <p class="desc">Same level/actor/update/display split, expressed with melonJS entities, bodies, and the asset preloader.</p>
+      <div id="screen"></div>
+      <div class="hint">Arrow keys to move / jump. Collect all coins, avoid the lava.</div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/pacman/scratch.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
